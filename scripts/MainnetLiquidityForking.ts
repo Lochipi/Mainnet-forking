@@ -19,8 +19,8 @@ async function main() {
 
   const deadline = Math.floor(Date.now() / 1000) + 60 * 10;
 
-  const USDC_CONTRACT = await ethers.getContractAt("IERC20", USDC_Address);
-  const DAI_CONTRACT = await ethers.getContractAt("IERC20", DAI_Address);
+  const USDC_CONTRACT = await ethers.getContractAt("IERC20", USDC_Address, impersonatedSigner);
+  const DAI_CONTRACT = await ethers.getContractAt("IERC20", DAI_Address, impersonatedSigner);
 
   const ROUTER = await ethers.getContractAt(
     "IUniswapV2Router",
