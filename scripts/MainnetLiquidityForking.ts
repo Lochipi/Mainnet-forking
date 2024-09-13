@@ -28,6 +28,9 @@ async function main() {
     impersonatedSigner
   );
 
+  USDC_CONTRACT.approve(ROUTER, amountUSDC);
+  DAI_CONTRACT.approve(ROUTER, amountDAI);
+
   //   check the balance of the tokens
   const usdcBal = await USDC_CONTRACT.balanceOf(impersonatedSigner.address);
   const daiBal = await DAI_CONTRACT.balanceOf(impersonatedSigner.address);
