@@ -37,4 +37,21 @@ async function main() {
 
   console.log("usdc balance before swap", Number(usdcBal));
   console.log("dai balance before swap", Number(daiBal));
-}
+
+  const LiquidityTx = await ROUTER.addLiquidity(
+    USDC_CONTRACT,
+    DAI_CONTRACT,
+    deadline,
+    amountDAI,
+    amountUSDC,
+    impersonatedSigner.address,
+    DAI_Address,
+    USDC_Address
+  );
+  await LiquidityTx.wait();
+};
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
